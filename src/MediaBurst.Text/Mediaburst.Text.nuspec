@@ -2,21 +2,22 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Mediaburst.Text.GSMEncoding</id>
-        <version>1.0</version>
+        <version>2.0</version>
         <title>Mediaburst.Text.GSMEncoding</title>
         <authors>Mediaburst Ltd</authors>
         <owners />
         <licenseUrl>https://github.com/mediaburst/.NET-GSM-Encoding/blob/master/License.txt</licenseUrl>
         <projectUrl>https://www.clockworksms.com/</projectUrl>
         <iconUrl>http://www.mediaburst.co.uk/downloads/clockwork-nuget.png</iconUrl>
+        <repository type="git" url="https://github.com/mediaburst/.NET-GSM-Encoding.git" />
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Converts characters between the .NET internal Unicode encoding and the GSM03.38 alphabet.</description>
         <summary>System.Text encoder for the GSM character set.</summary>
         <copyright>Mediaburst Ltd 2015</copyright>
         <language>en-GB</language>
-        <tags>gsm sms mediaburst</tags>
+        <tags>gsm sms mediaburst gsm7 gsm03.38</tags>
         <releaseNotes>
-          * 1.0 - First release on NuGet (on GitHub for 5 years)          
+          * 2.0 - Upgrade to newer .Net Framework version support
         </releaseNotes>
     </metadata>
     <files>
