@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-
+using NUnit.Framework;
 
 namespace Mediaburst.Text.Tests
 {
@@ -31,7 +30,7 @@ namespace Mediaburst.Text.Tests
 
         /// <summary>
         /// Regular string encoding
-        /// </summary>				
+        /// </summary>
         [Test]
         public void GetBytes_NormalString_Success()
         {
@@ -40,15 +39,15 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         #region NULL tests
 
         /// <summary>
         /// NULL character in the middle of string should be replaced with space (0x20)
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_NullInsideString_Success()
         {
             const string input = "a\0b";
@@ -56,13 +55,13 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
         /// NULL character in the middle of string should not be replaced with space (32) if followed by FORM FEED
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_NullFollowedByFormFeedInsideString_Success()
         {
             string input = "a\0" + _FF + "b";
@@ -70,13 +69,13 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
         /// Sequence of NULL characters in the middle of string should be replaced with spaces (32)
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_SequenceOfNullsInsideString_Success()
         {
             const string input = "a\0\0\0b";
@@ -84,27 +83,27 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
         /// Sequence of NULL characters followed by form feed in the middle of string should not be replaced with spaces (32)
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_SequenceOfNullsFollowedByFormFeedInsideString_Success()
         {
             var input = "a\0\0\0" + _FF + "b";
             var expectedResult = new byte[] { 97, 0, 0, 0, 27, 10, 98 };
-            
+
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
         /// NULL character in the end of string should be encoded as NULL
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_NullInTheEndOfString_Success()
         {
             const string input = "ab\0";
@@ -112,7 +111,7 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         #endregion NULL tests
@@ -121,7 +120,7 @@ namespace Mediaburst.Text.Tests
 
         /// <summary>
         /// COMMERCIAL AT character in the middle of string and not followed by NULL
-        /// </summary>				
+        /// </summary>
         [Test]
         public void GetBytes_AtInTheMiddleOfString_Success()
         {
@@ -130,13 +129,13 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
         /// COMMERCIAL AT character in the end of string. Encoder should append CARRIAGE RETURN
-        /// </summary>				
-        [Test, Ignore] // Think the behaviour is wrong here
+        /// </summary>
+        [Test, Ignore("Think the behaviour is wrong here")]
         public void GetBytes_AtInTheEndOfString_Success()
         {
             const string input = "ab@";
@@ -144,14 +143,14 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
-        /// COMMERCIAL AT character in the middle of string followed by NULL. 
+        /// COMMERCIAL AT character in the middle of string followed by NULL.
         /// Encoder should not append CARRIAGE RETURN because this NULL will be converted to space
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_AtFollowedByNullInTheMiddleOfString_Success()
         {
             const string input = "a@\0b";
@@ -159,14 +158,14 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
-        /// COMMERCIAL AT character in the end of string followed by NULL. 
+        /// COMMERCIAL AT character in the end of string followed by NULL.
         /// Encoder should append CARRIAGE RETURN because this NULL will not be converted to space
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_AtFollowedByNullInTheEndOfString_Success()
         {
             const string input = "ab@\0";
@@ -174,18 +173,18 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         /// <summary>
-        /// COMMERCIAL AT character in the middle of string followed by NULL and FORM FEED. 
+        /// COMMERCIAL AT character in the middle of string followed by NULL and FORM FEED.
         /// Encoder should append CARRIAGE RETURN and not replace NULL with space
-        /// </summary>				
-        [Test, Ignore] // Need to check expected behaviour on this
+        /// </summary>
+        [Test, Ignore("Need to check expected behaviour on this")]
         public void GetBytes_AtFollowedByNullAndFormFeedInTheMiddleOfString_Success()
         {
             var input = "a@\0" + _FF + "b";
-            var expectedResult = new byte[] { 
+            var expectedResult = new byte[] {
                 97,     // a
                 0, 13,  // @
                 0,      // \0
@@ -195,7 +194,7 @@ namespace Mediaburst.Text.Tests
 
             var result = m_GsmEncoding.GetBytes(input);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         #endregion COMMERCIAL AT tests
@@ -206,31 +205,31 @@ namespace Mediaburst.Text.Tests
 
         /// <summary>
         /// Chars from default extended table
-        /// </summary>				
+        /// </summary>
         [Test]
         public void GetBytesGetString_ExtendedTableChars_Success()
         {
             var encoded = m_GsmEncoding.GetBytes(_AllExtTableChars);
             var decoded = m_GsmEncoding.GetString(encoded);
 
-            Assert.AreEqual(_AllExtTableChars, decoded);
+            Assert.That(decoded, Is.EqualTo(_AllExtTableChars));
         }
 
         /// <summary>
         /// Main table chars
-        /// </summary>				
+        /// </summary>
         [Test]
         public void GetBytesGetString_MainTableChars_Success()
         {
             var encoded = m_GsmEncoding.GetBytes(_AllMainTableChars);
             var decoded = m_GsmEncoding.GetString(encoded);
 
-            Assert.AreEqual(_AllMainTableChars, decoded);
+            Assert.That(decoded, Is.EqualTo(_AllMainTableChars));
         }
 
         /// <summary>
         /// Currency symbols
-        /// </summary>				
+        /// </summary>
         [Test]
         public void GetBytesGetString_CurrencySymbols_Success()
         {
@@ -239,9 +238,8 @@ namespace Mediaburst.Text.Tests
             var encoded = m_GsmEncoding.GetBytes(input);
             var decoded = m_GsmEncoding.GetString(encoded);
 
-            Assert.AreEqual(input, decoded);
+            Assert.That(decoded, Is.EqualTo(input));
         }
-
 
         #endregion Encode and decode
     }
