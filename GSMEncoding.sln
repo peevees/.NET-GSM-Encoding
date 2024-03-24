@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediaburst.Text", "src\Medi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediaburst.Text.Tests", "Tests\Mediaburst.Text.Tests\Mediaburst.Text.Tests.csproj", "{3427C04B-0634-45BD-B516-7DD7A8E645FB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBurst.TextCore", "src\MediaBurst.TextCore\MediaBurst.TextCore.csproj", "{51A398B9-6D71-425D-9C81-16B53A469DAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CBB4B625-ADD6-417C-83A5-410C577F15D3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		.globalconfig = .globalconfig
+		License.txt = License.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediaburst.TextCore.Tests", "Tests\Mediaburst.TextCore.Tests\Mediaburst.TextCore.Tests.csproj", "{C69A09D1-609A-4D5E-859E-993AA706398F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,8 +34,19 @@ Global
 		{3427C04B-0634-45BD-B516-7DD7A8E645FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3427C04B-0634-45BD-B516-7DD7A8E645FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3427C04B-0634-45BD-B516-7DD7A8E645FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A398B9-6D71-425D-9C81-16B53A469DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A398B9-6D71-425D-9C81-16B53A469DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A398B9-6D71-425D-9C81-16B53A469DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A398B9-6D71-425D-9C81-16B53A469DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69A09D1-609A-4D5E-859E-993AA706398F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69A09D1-609A-4D5E-859E-993AA706398F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69A09D1-609A-4D5E-859E-993AA706398F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69A09D1-609A-4D5E-859E-993AA706398F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC3854D7-089E-4D1A-8FFA-43CA335F8E67}
 	EndGlobalSection
 EndGlobal

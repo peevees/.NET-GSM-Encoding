@@ -1,0 +1,7 @@
+is_global = true
+# Top level entry required to mark this as a global AnalyzerConfig file
+# more info here https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-files
+# --------------------------------------------------------------------------------------------------------
+
+# Analyzers
+dotnet_code_quality.ca1802.api_surface = private, internal
